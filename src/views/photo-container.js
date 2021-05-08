@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const photoContainer = () => {
+const PhotoContainer = ({ get, query }) => {
+    useEffect(() => {
+        get(query);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [query]);
+
     return (
         <div class="photo-container">
             <h2>Results</h2>
@@ -8,4 +13,4 @@ const photoContainer = () => {
         </div>
     );
 };
-export default photoContainer;
+export default PhotoContainer;
