@@ -34,13 +34,25 @@ function App() {
                         }}
                     ></Route>
                     <Route path="/cats">
-                        <PhotoContainer get={getImages} query="cats" />
+                        <PhotoContainer
+                            get={getImages}
+                            images={images}
+                            query="cats"
+                        />
                     </Route>
                     <Route path="/dogs">
-                        <PhotoContainer get={getImages} query="dogs" />
+                        <PhotoContainer
+                            get={getImages}
+                            images={images}
+                            query="dogs"
+                        />
                     </Route>
                     <Route path="/computers">
-                        <PhotoContainer get={getImages} query="computers" />
+                        <PhotoContainer
+                            get={getImages}
+                            images={images}
+                            query="computers"
+                        />
                     </Route>
                 </Switch>
             </div>

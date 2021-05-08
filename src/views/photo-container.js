@@ -1,15 +1,19 @@
 import React, { useEffect } from 'react';
 
-const PhotoContainer = ({ get, query }) => {
+import { Photo } from '../components/photo';
+
+const PhotoContainer = ({ get, query, images }) => {
     useEffect(() => {
         get(query);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [query]);
 
+    const imageList = images.map((image) => <Photo />);
+
     return (
-        <div class="photo-container">
+        <div className="photo-container">
             <h2>Results</h2>
-            <ul></ul>
+            <ul>{imageList}</ul>
         </div>
     );
 };

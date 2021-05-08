@@ -7,6 +7,5 @@ const photoQueryUrl = (tag, prPage) => {
 export const queryImages = async (query) => {
     const response = await fetch(photoQueryUrl(query, 24));
     const json = await response.json();
-    console.log(json);
     return json.photos.photo;
 };

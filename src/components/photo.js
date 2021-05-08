@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const photo = () => {
+export const Photo = () => {
     return (
         <li>
             <img
