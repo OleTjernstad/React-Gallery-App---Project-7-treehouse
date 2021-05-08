@@ -9,10 +9,10 @@ export const Nav = () => {
                     <NavLink to="/">Cats</NavLink>
                 </li>
                 <li>
-                    <a href="#">Dogs</a>
+                    <NavLink to="/">Dogs</NavLink>
                 </li>
                 <li>
-                    <a href="#">Computers</a>
+                    <NavLink to="/">Computers</NavLink>
                 </li>
             </ul>
         </nav>
