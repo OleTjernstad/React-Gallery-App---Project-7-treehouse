@@ -45,6 +45,30 @@ function App() {
                             return <Redirect to="/cats" />;
                         }}
                     ></Route>
+                    <Route exact path="/cats">
+                        <PhotoContainer
+                            get={getPhotos}
+                            photos={photos}
+                            isLoading={loading}
+                            tag="cats"
+                        />
+                    </Route>
+                    <Route exact path="/dogs">
+                        <PhotoContainer
+                            get={getPhotos}
+                            photos={photos}
+                            isLoading={loading}
+                            tag="dogs"
+                        />
+                    </Route>
+                    <Route exact path="/computers">
+                        <PhotoContainer
+                            get={getPhotos}
+                            photos={photos}
+                            isLoading={loading}
+                            tag="computers"
+                        />
+                    </Route>
                     <Route exact path="/:query">
                         <PhotoContainer
                             get={getPhotos}

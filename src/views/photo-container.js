@@ -9,12 +9,12 @@ import { useParams } from 'react-router';
  * @param {object} props (get loadPhotos, photos array of photos, isLoading boolean loading status)
  * @returns
  */
-const PhotoContainer = ({ get, photos, isLoading }) => {
+const PhotoContainer = ({ get, photos, isLoading, tag }) => {
     let { query } = useParams();
     useEffect(() => {
-        get(query);
+        get(tag === undefined ? query : tag);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [query]);
+    }, [query, tag]);
 
     /**
      * show loading before photos has loaded
