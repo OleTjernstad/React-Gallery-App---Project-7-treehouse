@@ -18,7 +18,6 @@ import { useState } from 'react';
  * @returns
  */
 function App() {
-    // const [query, setQuery] = useState('');
     const [photos, setPhotos] = useState([]);
     const [loading, setLoading] = useState(true);
 
