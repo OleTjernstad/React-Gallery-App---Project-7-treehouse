@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 
 import { Photo } from '../components/photo';
+import { useParams } from 'react-router';
 
-const PhotoContainer = ({ get, query, images }) => {
+const PhotoContainer = ({ get, images }) => {
+    let { query } = useParams();
     useEffect(() => {
         get(query);
         // eslint-disable-next-line react-hooks/exhaustive-deps

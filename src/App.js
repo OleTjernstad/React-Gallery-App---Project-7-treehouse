@@ -33,26 +33,8 @@ function App() {
                             return <Redirect to="/cats" />;
                         }}
                     ></Route>
-                    <Route path="/cats">
-                        <PhotoContainer
-                            get={getImages}
-                            images={images}
-                            query="cats"
-                        />
-                    </Route>
-                    <Route path="/dogs">
-                        <PhotoContainer
-                            get={getImages}
-                            images={images}
-                            query="dogs"
-                        />
-                    </Route>
-                    <Route path="/computers">
-                        <PhotoContainer
-                            get={getImages}
-                            images={images}
-                            query="computers"
-                        />
+                    <Route path="/:query">
+                        <PhotoContainer get={getImages} images={images} />
                     </Route>
                 </Switch>
             </div>
