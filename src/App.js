@@ -16,9 +16,12 @@ import { useState } from 'react';
 function App() {
     // const [query, setQuery] = useState('');
     const [images, setImages] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const getImages = async (query) => {
-        setImages(await queryImages(query));
+        const response = await queryImages(query);
+        setImages(response);
+        setLoading(false);
     };
     return (
         <Router>
@@ -34,7 +37,11 @@ function App() {
                         }}
                     ></Route>
                     <Route path="/:query">
-                        <PhotoContainer get={getImages} images={images} />
+                        <PhotoContainer
+                            get={getImages}
+                            images={images}
+                            isLoading={loading}
+                        />
                     </Route>
                 </Switch>
             </div>
