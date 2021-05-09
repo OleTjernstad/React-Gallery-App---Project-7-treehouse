@@ -10,17 +10,25 @@ import {
 import { Nav } from './components/nav';
 import PhotoContainer from './views/photo-container';
 import { SearchForm } from './components/search-form';
-import { queryImages } from './Api/flickr';
+import { queryPhotos } from './Api/flickr';
 import { useState } from 'react';
 
+/**
+ * App container with router
+ * @returns
+ */
 function App() {
     // const [query, setQuery] = useState('');
-    const [images, setImages] = useState([]);
+    const [photos, setPhotos] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const getImages = async (query) => {
-        const response = await queryImages(query);
-        setImages(response);
+    /**
+     * Query for the photos
+     * @param {string} query
+     */
+    const getPhotos = async (query) => {
+        const response = await queryPhotos(query);
+        setPhotos(response);
         setLoading(false);
     };
     return (
@@ -38,8 +46,8 @@ function App() {
                     ></Route>
                     <Route path="/:query">
                         <PhotoContainer
-                            get={getImages}
-                            images={images}
+                            get={getPhotos}
+                            photos={photos}
                             isLoading={loading}
                         />
                     </Route>

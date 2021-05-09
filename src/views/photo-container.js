@@ -4,17 +4,29 @@ import { NotFound } from '../components/not-found';
 import { Photo } from '../components/photo';
 import { useParams } from 'react-router';
 
-const PhotoContainer = ({ get, images, isLoading }) => {
+/**
+ *
+ * @param {object} props (get loadPhotos, photos array of photos, isLoading boolean loading status)
+ * @returns
+ */
+const PhotoContainer = ({ get, photos, isLoading }) => {
     let { query } = useParams();
     useEffect(() => {
         get(query);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [query]);
+
+    /**
+     * show loading before photos has loaded
+     */
     if (isLoading) {
         return <h2>Loading.....</h2>;
     }
 
-    const photoList = images.map((photo) => (
+    /**
+     * render list of photos
+     */
+    const photoList = photos.map((photo) => (
         <Photo photo={photo} key={photo.id.toString()} />
     ));
 

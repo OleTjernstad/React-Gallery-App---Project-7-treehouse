@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Render search form
+ * @returns
+ */
 export const SearchForm = () => {
     return (
         <form className="search-form">

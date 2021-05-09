@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Render not found message
+ * @returns
+ */
 export const NotFound = () => {
     return (
         <li className="not-found">
