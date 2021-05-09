@@ -1,12 +1,10 @@
 import React from 'react';
+import { photoUrl } from '../Api/flickr';
 
-export const Photo = () => {
+export const Photo = ({ photo }) => {
     return (
         <li>
-            <img
-                src="https://farm5.staticflickr.com/4334/37032996241_4c16a9b530.jpg"
-                alt=""
-            />
+            <img src={photoUrl(photo.server, photo.id, photo.secret)} alt="" />
         </li>
     );
 };

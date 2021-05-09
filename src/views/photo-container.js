@@ -8,12 +8,14 @@ const PhotoContainer = ({ get, query, images }) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [query]);
 
-    const imageList = images.map((image) => <Photo />);
+    const photoList = images.map((photo) => (
+        <Photo photo={photo} key={photo.id.toString()} />
+    ));
 
     return (
         <div className="photo-container">
             <h2>Results</h2>
-            <ul>{imageList}</ul>
+            <ul>{photoList}</ul>
         </div>
     );
 };
