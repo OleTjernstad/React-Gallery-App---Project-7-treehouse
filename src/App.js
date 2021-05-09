@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 
 import { Nav } from './components/nav';
+import NotFound from './views/not-found';
 import PhotoContainer from './views/photo-container';
 import { SearchForm } from './components/search-form';
 import { queryPhotos } from './Api/flickr';
@@ -44,13 +45,14 @@ function App() {
                             return <Redirect to="/cats" />;
                         }}
                     ></Route>
-                    <Route path="/:query">
+                    <Route exact path="/:query">
                         <PhotoContainer
                             get={getPhotos}
                             photos={photos}
                             isLoading={loading}
                         />
                     </Route>
+                    <Route component={NotFound} />
                 </Switch>
             </div>
         </Router>
