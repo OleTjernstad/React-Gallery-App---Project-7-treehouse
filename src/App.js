@@ -27,6 +27,7 @@ function App() {
      * @param {string} query
      */
     const getPhotos = async (query) => {
+        setLoading(true);
         const response = await queryPhotos(query);
         setPhotos(response);
         setLoading(false);
