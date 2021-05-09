@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useRef } from 'react';
+
+import { useHistory } from 'react-router';
 
 /**
  * Render search form
  * @returns
  */
 export const SearchForm = () => {
+    const search = useRef();
+    const history = useHistory();
+
+    /**
+     * Handle submit push to target and reset form
+     * @param {object} e submit event
+     */
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        history.push(`/${search.current.value}`);
+        e.currentTarget.reset();
+    };
+
     return (
-        <form className="search-form">
-            <input type="search" name="search" placeholder="Search" required />
+        <form onSubmit={handleSubmit} className="search-form">
+            <input
+                ref={search}
+                type="search"
+                name="search"
+                placeholder="Search"
+                required
+            />
             <button type="submit" className="search-button">
                 <svg
                     fill="#fff"
